@@ -15,6 +15,8 @@
 
 **仓库地址**：<https://github.com/Jack-infinity420/reverse-tutor>
 
+> 📣 想先听它的设计故事？**[LAUNCH.md](LAUNCH.md)** —— 一场发布会式的 Agent 架构自述：为什么这个教练从架构上就拿不到答案。
+
 ## 特性
 
 - **真实靶子**：五个主题（XOR / strcmp / 算术 / 分支 / 调用约定）× 两档难度，共十个模板变体，每个都是真实可运行的 ELF32 i386 可执行文件
@@ -383,6 +385,7 @@ node lib/cli.js help
 ## 参考
 
 - 本仓库：<https://github.com/Jack-infinity420/reverse-tutor>
+- 发布会式设计自述（Agent 架构视角）：[LAUNCH.md](LAUNCH.md)
 - DeepSeek Harness：<https://github.com/deepseek-ai/deepseek-harness>
 - 工具子系统：<https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/subsystems/tools.md>
 - 插件开发：<https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/user/develop/basic/index.md>

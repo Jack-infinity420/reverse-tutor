@@ -422,6 +422,7 @@ they are unreachable.
 ## 9. Reference
 
 - Repository: <https://github.com/Jack-infinity420/reverse-tutor>
+- Design story, keynote style (Chinese): [LAUNCH.md](LAUNCH.md)
 - DeepSeek Harness: <https://github.com/deepseek-ai/deepseek-harness>
 - Tool subsystem: <https://github.com/deepseek-ai/deepseek-harness/blob/master/docs/subsystems/tools.md>
 - Skill package: <https://github.com/deepseek-ai/deepseek-harness/blob/master/packages/skill/README.md>
