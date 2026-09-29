@@ -1,0 +1,64 @@
+{
+  "name": "dsh-reverse-tutor",
+  "version": "0.1.0",
+  "private": true,
+  "description": "DeepSeek Harness Reverse Tutor (IDA Pro edition): topic -> objectives -> generated Crackme -> IDA Pro practice -> layered hints -> deterministic verification -> weakness-tracked next challenge.",
+  "type": "module",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jack-infinity420/reverse-tutor.git"
+  },
+  "homepage": "https://github.com/Jack-infinity420/reverse-tutor#readme",
+  "engines": {
+    "node": ">=20.11"
+  },
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./cli": {
+      "types": "./lib/cli.d.ts",
+      "default": "./lib/cli.js"
+    }
+  },
+  "bin": {
+    "reverse-tutor": "lib/cli.js"
+  },
+  "files": [
+    "lib",
+    "skills",
+    "ida",
+    "templates",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "keywords": [
+    "deepseek",
+    "dsh",
+    "cordis",
+    "reverse-engineering",
+    "ida-pro",
+    "crackme",
+    "tutor"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "npm run build && node --test --test-concurrency=1 \"test/*.test.mjs\"",
+    "selftest": "node lib/cli.js selftest",
+    "prepare": "npm run build"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.4",
+    "typescript": "^5.9.3"
+  }
+}

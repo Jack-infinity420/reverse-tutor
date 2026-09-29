@@ -1,0 +1,21 @@
+# dependencies
+node_modules/
+
+# build output (rebuild with `npm run build`)
+lib/
+
+# local runtime artefacts / accident residue
+undefined/
+challenges/
+vault/
+state/
+tmp/
+
+# logs & OS noise
+*.log
+.DS_Store
+Thumbs.db
+
+# editors
+.vscode/
+.idea/

@@ -1,0 +1,11 @@
+# DSH bundle patch for dsh-reverse-tutor.
+#
+# Installing the package into a profile is what makes this file take effect:
+#
+#   dsh plugin --profile <name> add <path-to-this-package>
+#
+# The inserted row mounts this package as a Cordis plugin in the profile's host
+# composition. `id` must match `export const name` in src/index.ts.
+- insert:
+    - id: reverse-tutor
+      name: dsh-reverse-tutor
