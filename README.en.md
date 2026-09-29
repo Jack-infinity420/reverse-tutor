@@ -166,6 +166,46 @@ function" will not be accepted even when it is right.
 `reverse_submit` raises the level by one on every wrong answer. The tutor may not
 raise it itself, and it may not lower it inside one challenge.
 
+### The lesson loop, step by step
+
+What happens after the student says "学习 XOR" / "teach me XOR":
+
+1. **TOPIC** — the tutor restates the topic in one line. No prior-knowledge
+   questions; the next step replaces them.
+2. **TEACH** — 3–5 binary-level facts about the topic, each phrased as a pattern
+   the student will later recognise in IDA: an instruction shape, a data
+   structure, a call pattern. One screen at most, nothing about the upcoming
+   binary.
+3. **QUIZ** — 3–4 multiple-choice questions on exactly those facts. Letters in,
+   one-line verdicts out. All correct grounds `intermediate`; two or more wrong
+   means `beginner`. No challenge is built before the quiz is graded.
+4. **CHALLENGE** — the tutor calls `reverse_build`: pick a template, generate the
+   secret, inject only the encoded reference bytes into C, compile a real ELF32
+   i386 crackme, self-test, lock the value in the vault. The student gets a
+   binary path, the accepted length, and a brief. The tutor never sees the value.
+5. **STUDENT ANALYSIS** — one question at a time, then wait. The opener is
+   usually "which function decides the outcome — and *why*?" The student puts
+   the cursor in that function, runs `ida/reverse_tutor_export.py`, and says
+   "exported".
+6. **EVIDENCE** — the tutor calls `reverse_inspect("ida_context")` and anchors
+   every question to that function. Every claim needs an address, an
+   instruction, an xref, a string, or a register value behind it.
+7. **GRADE** — the tutor scores the *reasoning* with the 0–2 rubric
+   (`key_function`, `argument_flow`, `control_flow`, `data_flow`,
+   `evidence_quality`); the final answer goes to `reverse_submit`, which decides
+   — the tutor cannot overrule it.
+8. **HINT** (on a wrong answer) — the level rises by one (`0` observe → `1`
+   locate → `2` instruction → `3` trace a value → `4` local semantics) and the
+   tutor gives exactly one hint at the licensed level. Still stuck at level 4?
+   The difficulty was wrong: rebuild an easier challenge and say why.
+9. **EXPLAIN** (after a verified correct answer) — the full chain, in order:
+   entry point → input buffer → loop → transform → reference data → comparison →
+   why only this value fits. A guessed answer earns the verdict first, then the
+   derivation anyway, with `evidence_quality: 0` and a recorded weakness.
+10. **NEXT CHALLENGE** — `reverse_state` updates the five skill scores and the
+    weaknesses, returns a recommendation, the tutor names the reason in one line,
+    and builds the next challenge. Saying "下一题" / "next" triggers the same step.
+
 ---
 
 ## 5. Templates
