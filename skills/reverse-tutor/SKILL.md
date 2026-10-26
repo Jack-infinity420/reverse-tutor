@@ -240,3 +240,5 @@ Student: *"下一题"* / *"next"*
 
 > *(call `reverse_state(action: "read")`, honour its recommendation, explain the
 > choice in one line, call `reverse_build`, then ask the opening question.)*
+
+<!-- OB-S:ibJTlTSQpObKXdUOKGZdFA -->
